@@ -74,17 +74,8 @@ class Bidello {
 
 const bidelloSingleton = new Bidello();
 
-const component = (superclass = class T {}) => class extends superclass {
-  constructor(...args) {
-    super(...args);
-    this._args = args;
-    this.init && this.init();
-    bidelloSingleton.register(this);
-  }
-
-  destroy() {
-    bidelloSingleton.unregister(this);
-  }
+const component = (scope) => {
+  bidelloSingleton.register(scope);
 };
 
 export { component };
