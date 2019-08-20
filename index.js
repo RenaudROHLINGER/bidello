@@ -26,7 +26,9 @@ class Bidello {
       this.fireMethod(instance, k);
     }
   }
-
+  getInstance(instance) {
+    return this.instances.find(cl => cl.constructor.name == instance)
+  }
   unregister(instance) {
     const index = this.instances.indexOf(instance);
 
@@ -76,6 +78,7 @@ const bidelloSingleton = new Bidello();
 
 const component = (scope) => {
   bidelloSingleton.register(scope);
+  return bidelloSingleton
 };
 
 export { component };
