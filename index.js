@@ -78,6 +78,7 @@ const bidelloSingleton = new Bidello();
 
 const component = (scope) => {
   bidelloSingleton.register(scope);
+  scope.scope = bidelloSingleton
   return bidelloSingleton
 };
 
